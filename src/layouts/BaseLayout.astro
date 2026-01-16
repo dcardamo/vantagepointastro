@@ -1,0 +1,98 @@
+---
+import "../styles/global.css";
+import "@fontsource/inter/300.css";
+import "@fontsource/inter/400.css";
+import "@fontsource/inter/500.css";
+import "@fontsource/inter/700.css";
+import "@fontsource-variable/newsreader";
+import Lightbox from "../components/Lightbox.astro";
+
+interface Props {
+    title: string;
+    description?: string;
+}
+
+const {
+    title,
+    description = "Astrophotography portfolio and blog by Vista and Void",
+} = Astro.props;
+const canonicalURL = Astro.site
+    ? new URL(Astro.url.pathname, Astro.site)
+    : null;
+---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="generator" content={Astro.generator} />
+
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        {canonicalURL && <link rel="canonical" href={canonicalURL} />}
+
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        {canonicalURL && <meta property="og:url" content={canonicalURL} />}
+        <meta property="og:site_name" content="Vista and Void" />
+        <meta property="og:type" content="website" />
+    </head>
+    <body
+        class="min-h-screen font-sans"
+        style="background-color: var(--color-bg-main); color: var(--color-text-main);"
+    >
+        <header>
+            <nav class="container mx-auto px-6 py-6">
+                <div class="flex items-center justify-between">
+                    <a
+                        href="/"
+                        class="text-xl font-serif font-medium hover:opacity-70 transition-opacity"
+                    >
+                        Vista and Void
+                    </a>
+                    <ul class="flex gap-8 text-sm font-serif">
+                        <li>
+                            <a
+                                href="/"
+                                class="hover:underline hover:underline-offset-2 transition-all"
+                                >Home</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                href="/portfolio"
+                                class="hover:underline hover:underline-offset-2 transition-all"
+                                >Portfolio</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                href="/blog"
+                                class="hover:underline hover:underline-offset-2 transition-all"
+                                >Blog</a
+                            >
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <main class="container mx-auto px-6 py-12">
+            <slot />
+        </main>
+
+        <footer class="mt-24">
+            <div class="container mx-auto px-6 py-8">
+                <div class="flex flex-col items-center gap-4">
+                    <p class="text-sm opacity-70 text-center">
+                        © {new Date().getFullYear()} Vista and Void. All rights reserved.
+                    </p>
+                </div>
+            </div>
+        </footer>
+
+        <Lightbox />
+    </body>
+</html>

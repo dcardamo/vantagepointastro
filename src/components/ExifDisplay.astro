@@ -1,0 +1,36 @@
+---
+import type { PhotoExif } from '../utils/exif';
+
+interface Props {
+  exif: PhotoExif;
+}
+
+const { exif } = Astro.props;
+
+// Only show: Model, Lens, Date (no labels)
+const displayValues: string[] = [];
+
+if (exif.model) {
+  displayValues.push(exif.model);
+}
+
+if (exif.lens) {
+  displayValues.push(exif.lens);
+}
+
+if (exif.dateTime) {
+  // Format date without time
+  const dateStr = exif.dateTime.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  });
+  displayValues.push(dateStr);
+}
+---
+
+{displayValues.length > 0 && (
+  <div class="text-xs text-gray-500">
+    {displayValues.join(' · ')}
+  </div>
+)}
