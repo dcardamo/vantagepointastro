@@ -1,0 +1,51 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+    title="About - Vista and Void"
+    description="Meet the team behind Vista and Void astrophotography"
+>
+    <div class="max-w-3xl mx-auto space-y-12">
+        <header class="space-y-4">
+            <h1 class="text-4xl font-light">About Us</h1>
+            <p class="text-lg" style="color: var(--color-text-muted);">
+                The team behind Vista and Void
+            </p>
+        </header>
+
+        <section class="prose prose-invert max-w-none space-y-6">
+            <p>
+                Vista and Void is an astrophotography collective dedicated to
+                capturing the beauty of the night sky. Our team brings together
+                diverse perspectives and expertise to share the wonders of the
+                cosmos.
+            </p>
+        </section>
+
+        <section class="space-y-8">
+            <h2 class="text-2xl font-light">Our Team</h2>
+            <div class="grid gap-8 md:grid-cols-2">
+                <div class="space-y-2">
+                    <h3 class="text-xl font-medium">Malcolm Loro</h3>
+                </div>
+                <div class="space-y-2">
+                    <h3 class="text-xl font-medium">Tony Jarrett</h3>
+                </div>
+                <div class="space-y-2">
+                    <h3 class="text-xl font-medium">Richard Taylor</h3>
+                </div>
+                <div class="space-y-2">
+                    <h3 class="text-xl font-medium">Dan Cardamore</h3>
+                    <a
+                        href="https://dan.cardamore.ca"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="text-sm hover:underline"
+                        style="color: var(--color-text-muted);">Blog</a
+                    >
+                </div>
+            </div>
+        </section>
+    </div>
+</BaseLayout>
