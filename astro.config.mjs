@@ -8,6 +8,9 @@ export default defineConfig({
   site: "https://vistaandvoid.com",
   vite: {
     plugins: [tailwindcss()],
+    server: {
+      allowedHosts: ["www-dev.vantagepointastro.com", "localhost"],
+    },
   },
   image: {
     service: {

@@ -2,7 +2,7 @@
 title: "TODO"
 description: "TODO"
 pubDate: 2024-12-10
-author: "Vista and Void Team"
+author: "Vantage Point Astro Team"
 featured: false
 tags: ["astrophotography", "todo"]
 ---

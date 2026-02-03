@@ -31,7 +31,7 @@ const blog = defineCollection({
     description: z.string(),
     pubDate: z.coerce.date(),
     updatedDate: z.coerce.date().optional(),
-    author: z.string().default("Vista and Void Team"),
+    author: z.string().default("Vantage Point Astro Team"),
     featured: z.boolean().default(false),
     tags: z.array(z.string()).optional(),
   }),

@@ -1,4 +1,4 @@
-# Vista and Void - Astrophotography Team Blog
+# Vantage Point Astro - Astrophotography Team Blog
 
 A team astrophotography portfolio and blog built with Astro, featuring automatic EXIF extraction and auto-discovery of photo projects.
 
@@ -111,7 +111,7 @@ EOF
 title: "Post Title"
 description: "Post description"
 pubDate: 2024-12-09
-author: "Vista and Void Team"
+author: "Vantage Point Astro Team"
 tags: ["astrophotography"]
 ---
 
@@ -222,4 +222,4 @@ npm run astro check
 
 ## License
 
-© 2024 Vista and Void. All rights reserved.
+© 2024 Vantage Point Astro. All rights reserved.
