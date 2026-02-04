@@ -148,11 +148,20 @@ if (projectImages.length === 0) {
                 subMetadata?.data.coverImage,
             );
 
+            // Render the sub-project's markdown content
+            let subContent = null;
+            if (subMetadata) {
+                const rendered = await render(subMetadata);
+                subContent = rendered.Content;
+            }
+
             return {
                 slug: slug!,
-                title: humanizeProjectName(slug!.split("/").pop()!),
+                title: subMetadata?.data.title || humanizeProjectName(slug!.split("/").pop()!),
+                description: subMetadata?.data.description || "",
                 href: `/portfolio/${slug}`,
                 coverImage: coverImage?.image,
+                Content: subContent,
             };
         }),
     );
@@ -192,33 +201,33 @@ const showExif =
         <div class="space-y-4">
             <a
                 href="/portfolio"
-                class="text-sm text-gray-500 hover:text-gray-700 transition-colors"
+                class="text-sm text-gray-400 hover:text-gray-200 transition-colors"
             >
-                ← Back to Portfolio
+                ← Back to Gallery
             </a>
             <div class="space-y-2">
                 <h1 class="text-4xl font-light">{title}</h1>
-                <p class="text-sm text-gray-500">{formattedDate}</p>
+                <p class="text-sm text-gray-400">{formattedDate}</p>
             </div>
             {
-                Content && (
+                /* Only show content above for multi-image galleries (not sub-projects, not single image) */
+                Content && subProjects.length === 0 && photos.length > 1 && (
                     <div class="prose prose-gray max-w-none">
                         <Content />
                     </div>
                 )
             }
             {
-                !Content && description && (
-                    <p class="text-gray-700">{description}</p>
+                !Content && description && subProjects.length === 0 && photos.length > 1 && (
+                    <p class="text-gray-300">{description}</p>
                 )
             }
         </div>
 
         {
             subProjects.length > 0 ? (
-                <div class="space-y-6">
-                    <h2 class="text-2xl font-light">Projects</h2>
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="space-y-12">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                         {subProjects.map((project) => (
                             <a
                                 href={project.href}
@@ -238,12 +247,38 @@ const showExif =
                                         />
                                     </div>
                                 )}
-                                <h3 class="text-xl font-normal group-hover:opacity-70 transition-opacity">
-                                    {project.title}
-                                </h3>
+                                <div class="space-y-2">
+                                    <h3 class="text-xl font-normal group-hover:opacity-70 transition-opacity">
+                                        {project.title}
+                                    </h3>
+                                    {project.Content && (
+                                        <div class="text-sm text-gray-300 prose prose-sm prose-gray max-w-none">
+                                            <project.Content />
+                                        </div>
+                                    )}
+                                </div>
                             </a>
                         ))}
                     </div>
+                </div>
+            ) : photos.length === 1 ? (
+                /* Single image - show large with info below */
+                <div class="space-y-6">
+                    <div class="overflow-hidden">
+                        <img
+                            src={photos[0].image.src}
+                            alt={title}
+                            width={photos[0].image.width}
+                            height={photos[0].image.height}
+                            class="w-full max-w-4xl mx-auto lightbox-image cursor-pointer"
+                            data-full-src={photos[0].image.src}
+                        />
+                    </div>
+                    {Content && (
+                        <div class="prose prose-gray max-w-2xl mx-auto text-gray-300">
+                            <Content />
+                        </div>
+                    )}
                 </div>
             ) : (
                 <PhotoGallery photos={photos} showExif={showExif} />
