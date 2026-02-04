@@ -159,7 +159,7 @@ if (projectImages.length === 0) {
                 slug: slug!,
                 title: subMetadata?.data.title || humanizeProjectName(slug!.split("/").pop()!),
                 description: subMetadata?.data.description || "",
-                href: `/portfolio/${slug}`,
+                href: `/gallery/${slug}`,
                 coverImage: coverImage?.image,
                 Content: subContent,
             };
@@ -200,7 +200,7 @@ const showExif =
     <div class="max-w-6xl mx-auto space-y-12">
         <div class="space-y-4">
             <a
-                href="/portfolio"
+                href="/gallery"
                 class="text-sm text-gray-400 hover:text-gray-200 transition-colors"
             >
                 ← Back to Gallery
