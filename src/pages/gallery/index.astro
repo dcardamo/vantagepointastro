@@ -70,13 +70,13 @@ const sortedProjects = projects.sort(
 
 <BaseLayout
     title="Gallery - Vantage Point Astro"
-    description="Astrophotography gallery by the Vantage Point Astro team"
+    description="Astrophotography portfolio by the Vantage Point Astro team"
 >
     <div class="max-w-6xl mx-auto space-y-12">
         <div class="space-y-4">
-            <h1 class="text-4xl font-light">Gallery</h1>
-            <p class="text-lg text-gray-300">
-                A collection of our astrophotography
+            <h1 class="text-4xl font-light">Portfolio</h1>
+            <p class="text-lg text-gray-600">
+                A collection of our astrophotography projects
             </p>
         </div>
 
@@ -100,10 +100,10 @@ const sortedProjects = projects.sort(
                                     />
                                 </div>
                                 <div class="space-y-2">
-                                    <h2 class="text-xl font-normal group-hover:text-gray-400 transition-colors">
+                                    <h2 class="text-xl font-normal group-hover:text-gray-600 transition-colors">
                                         {project.title}
                                     </h2>
-                                    <p class="text-sm text-gray-400">
+                                    <p class="text-sm text-gray-500">
                                         {new Date(
                                             project.date,
                                         ).toLocaleDateString("en-US", {
@@ -113,7 +113,7 @@ const sortedProjects = projects.sort(
                                         })}
                                     </p>
                                     {project.description && (
-                                        <p class="text-sm text-gray-300 line-clamp-2">
+                                        <p class="text-sm text-gray-700 line-clamp-2">
                                             {project.description}
                                         </p>
                                     )}
