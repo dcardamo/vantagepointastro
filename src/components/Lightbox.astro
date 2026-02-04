@@ -59,6 +59,15 @@
     lightbox?.classList.remove('hidden');
     lightbox?.classList.add('flex');
     document.body.style.overflow = 'hidden';
+    
+    // Hide navigation arrows if only one image
+    if (images.length <= 1) {
+      prevButton?.classList.add('hidden');
+      nextButton?.classList.add('hidden');
+    } else {
+      prevButton?.classList.remove('hidden');
+      nextButton?.classList.remove('hidden');
+    }
   }
 
   function closeLightbox() {
