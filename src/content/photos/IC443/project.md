@@ -1,13 +1,10 @@
 ---
-title: "IC 443: The Jellyfish Nebula"
-description: "A stunning look at IC 443, the Jellyfish Nebula — a supernova remnant in Gemini captured in the Hubble SHO palette with RGB stars."
-pubDate: 2026-03-10
-author: "Tony Jarrett"
-tags: ["astrophotography", "nebula", "supernova remnant", "SHO", "Gemini"]
-draft: true
+title: "IC 443 - The Jellyfish Nebula"
+description: "A supernova remnant in Gemini captured in the Hubble SHO palette with RGB stars."
+date: 2026-03-10
+featured: false
+exifDisplay: "off"
 ---
-
-![IC 443 - The Jellyfish Nebula](/images/blog/ic443-jellyfish-nebula-tony-jarrett.jpg)
 
 IC 443, commonly known as the **Jellyfish Nebula**, is a supernova remnant located in the constellation Gemini about 5,000 light-years from Earth. It formed when a massive star exploded thousands of years ago, sending shock waves outward into surrounding interstellar gas and dust.
 
