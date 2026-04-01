@@ -212,7 +212,7 @@ const showExif =
             {
                 /* Only show content above for multi-image galleries (not sub-projects, not single image) */
                 Content && subProjects.length === 0 && photos.length > 1 && (
-                    <div class="prose max-w-none">
+                    <div class="prose prose-invert max-w-none">
                         <Content />
                     </div>
                 )
@@ -252,7 +252,7 @@ const showExif =
                                         {project.title}
                                     </h3>
                                     {project.Content && (
-                                        <div class="text-sm text-gray-300 prose prose-sm max-w-none">
+                                        <div class="text-sm text-gray-300 prose prose-sm prose-invert max-w-none">
                                             <project.Content />
                                         </div>
                                     )}
@@ -275,7 +275,7 @@ const showExif =
                         />
                     </div>
                     {Content && (
-                        <div class="prose max-w-2xl mx-auto text-gray-300">
+                        <div class="prose prose-invert max-w-2xl mx-auto">
                             <Content />
                         </div>
                     )}
